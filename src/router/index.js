@@ -1,11 +1,22 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import MSite from '../pages/MSite/MSite.vue'
-import Order from '../pages/Order/Order.vue'
-import Profile from '../pages/Profile/Profile.vue'
-import Search from '../pages/Search/Search.vue'
+const MSite = () =>
+    import ('../pages/MSite/MSite.vue')
+const Order = () =>
+    import ('../pages/Order/Order.vue')
+const Profile = () =>
+    import ('../pages/Profile/Profile.vue')
+const Search = () =>
+    import ('../pages/Search/Search.vue')
+    // import MSite from '../pages/MSite/MSite.vue'
+    // import Order from '../pages/Order/Order.vue'
+    // import Profile from '../pages/Profile/Profile.vue'
+    // import Search from '../pages/Search/Search.vue'
 import Login from '../pages/Login/Login.vue'
-
+import Shop from '../pages/Shop/Shop.vue'
+import ShopGoods from '../pages/Shop/ShopGoods/ShopGoods.vue'
+import ShopRead from '../pages/Shop/ShopRead/ShopRead.vue'
+import ShopInfo from '../pages/Shop/ShopInfo/ShopInfo.vue'
 Vue.use(VueRouter)
 
 const routes = [{
@@ -51,6 +62,33 @@ const routes = [{
         meta: {
             showFoot: false
         }
+    },
+    {
+        path: '/shop',
+        component: Shop,
+        meta: {
+            showFoot: false
+        },
+        children: [{
+                path: '/shop/goods',
+                name: 'shopgoods',
+                component: ShopGoods,
+            },
+            {
+                path: '/shop/read',
+                name: 'shopread',
+                component: ShopRead,
+            },
+            {
+                path: '/shop/info',
+                name: 'shopinfo',
+                component: ShopInfo,
+            },
+            {
+                path: '',
+                redirect: '/shop/goods'
+            }
+        ]
     },
     {
         path: '/about',
