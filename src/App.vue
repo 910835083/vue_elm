@@ -6,7 +6,13 @@
 </template>
 <script>
 import Footer from './components/Footer/Footer.vue'
+
 export default {
+  mounted () {
+    this.$store.dispatch('getAdderss')
+    this.$store.dispatch('getUserInfo')
+    
+  },
   components : {
     Footer
   }
