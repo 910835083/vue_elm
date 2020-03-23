@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+<<<<<<< HEAD
 import {
     reqShopRatings,
     reqShopGoods,
@@ -25,6 +26,10 @@ import {
     CLEAR_CART,
     RECEIVE_SEARCH_SHOPS
 } from '../store/type'
+=======
+import { reqLogout, reqUserInfo, reqAdderss, reqFoodCategorys, reqShops } from '../api/index'
+import { RESET_USER_INFO, RECEIVE_USER_INFO, RECEIVE_ADDERSS, RECEIVE_CATEGORYS, RECEIVE_SHOPS } from '../store/type'
+>>>>>>> 073ab43ec52b6d0a408c6364b7b6643aca88cf9d
 
 Vue.use(Vuex)
 
@@ -36,11 +41,14 @@ export default new Vuex.Store({
         categorys: [],
         shops: [],
         userInfo: {},
+<<<<<<< HEAD
         goods: [],
         ratings: [],
         info: {},
         cartFoods: [],
         searchShops: [],
+=======
+>>>>>>> 073ab43ec52b6d0a408c6364b7b6643aca88cf9d
     },
     mutations: {
         [RECEIVE_ADDERSS](state, { adderss }) {
@@ -58,6 +66,7 @@ export default new Vuex.Store({
         [RESET_USER_INFO](state) {
             state.userInfo = {}
         },
+<<<<<<< HEAD
         [RECEIVE_INFO](state, { info }) {
             state.info = info
         },
@@ -93,6 +102,8 @@ export default new Vuex.Store({
         [RECEIVE_SEARCH_SHOPS](state, { searchShops }) {
             state.searchShops = searchShops
         },
+=======
+>>>>>>> 073ab43ec52b6d0a408c6364b7b6643aca88cf9d
     },
     actions: {
         async getAdderss({ commit, state }) {
@@ -134,6 +145,7 @@ export default new Vuex.Store({
                 commit(RESET_USER_INFO)
             }
         },
+<<<<<<< HEAD
         async getShopInfo({ commit }) {
             const result = await reqShopInfo()
             if (result.code === 0) {
@@ -197,5 +209,11 @@ export default new Vuex.Store({
         positiveSize(state) {
             return state.ratings.reduce((preTotal, rating) => preTotal + (rating.rateType === 0 ? 1 : 0), 0)
         }
+=======
+    },
+    modules: {},
+    getters: {
+
+>>>>>>> 073ab43ec52b6d0a408c6364b7b6643aca88cf9d
     }
 })
